@@ -1,0 +1,12 @@
+.danger-label {
+  color: red;
+  font-size: 0.8em;
+}
+.success-label {
+  color: rgb(0, 141, 0);
+  font-size: 0.8em;
+}
+.info-label {
+  color: rgb(0, 0, 0);
+  font-size: 0.8em;
+}

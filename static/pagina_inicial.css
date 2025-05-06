@@ -1,0 +1,245 @@
+body {
+    font-family: 'Poppins', sans-serif; /* Fonte moderna principal */
+    background-color: #f7f7f7; /* Fundo levemente mais claro */
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.7; /* Melhor legibilidade */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 20px;
+    text-align: center; /* Centralizar conteúdo geral */
+}
+
+header {
+    background-color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    text-align: left; /* Alinhar o conteúdo do header à esquerda */
+    position: fixed; /* Barra de navegação fixa no topo */
+    top: 0;
+    left: 0;
+    z-index: 100; /* Garantir que a barra de navegação esteja acima de outros elementos */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    color: #2c3e50; /* Cor mais forte para o título */
+    margin: 0;
+    font-size: 2.2em;
+    font-weight: 700; /* Mais destaque */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li:first-child {
+    margin-left: 0;
+}
+
+nav a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 1.1em;
+}
+
+nav a:hover,
+nav a.active { /* Estilo para o menu ativo */
+    color: #007bff;
+    /* border-bottom: 2px solid #007bff; Sublinhado para ativo */
+    background-color: rgba(0, 123, 255, 0.05); /* Leve destaque de fundo */
+}
+
+nav .btn-comecar {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+nav .btn-comecar:hover {
+    background-color: #1e7e34;
+}
+
+main.pagina-inicial {
+    padding-top: 100px; /* Espaço para a barra de navegação fixa */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Ocupar o espaço restante */
+}
+
+.boas-vindas {
+    background-color: #fff;
+    padding: 60px;
+    border-radius: 16px; /* Bordas mais arredondadas */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Sombra mais suave e maior */
+    text-align: center;
+    max-width: 700px;
+}
+
+.boas-vindas h2 {
+    color: #2c3e50;
+    font-size: 3.0em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boas-vindas h2 svg { /* Estilo para um possível ícone SVG */
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+    fill: #007bff; /* Cor do ícone */
+}
+
+.boas-vindas p {
+    color: #555;
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.boas-vindas .saudacao {
+    font-size: 1.4em;
+    color: #007bff;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.boas-vindas .botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #28a745;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.boas-vindas .botao svg { /* Estilo para ícones nos botões */
+    margin-left: 10px;
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+.boas-vindas .botao:hover {
+    background-color: #1e7e34;
+    transform: translateY(-2px); /* Leve efeito de levantar ao hover */
+}
+
+.boas-vindas .botao.ver-cursos {
+    background-color: #007bff;
+    margin-left: 15px;
+}
+
+.boas-vindas .botao.ver-cursos:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+    margin-top: 40px;
+    width: 100%;
+}
+
+footer .container {
+    padding: 20px;
+}
+
+/* Responsividade (Exemplo básico) */
+@media (max-width: 768px) {
+    .boas-vindas {
+        padding: 40px;
+        margin: 40px 20px;
+    }
+
+    .boas-vindas h2 {
+        font-size: 2.5em;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .boas-vindas h2 svg {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .boas-vindas .botao {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+
+    .boas-vindas .botao.ver-cursos {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header h1 {
+        margin-bottom: 10px;
+    }
+}
+
+/* Animação de fade-in (opcional) */
+body {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

@@ -1,0 +1,119 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #ffffff; /* Cor de fundo padrão (modo claro) */
+    color: #000000; /* Cor do texto padrão (modo claro) */
+    font-family: sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #1e1e1e; /* Cor de fundo para o modo escuro */
+    color: #f8f8f2; /* Cor do texto para o modo escuro */
+}
+
+body.dark-mode form {
+    background-color: #333;
+    border-color: #555;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="password"] {
+    background-color: #444;
+    color: #f8f8f2;
+    border-color: #666;
+}
+
+body.dark-mode button[type="submit"] {
+    background-color: #0056b3;
+    color: white;
+}
+
+body.dark-mode button[type="submit"]:hover {
+    background-color: #003d80;
+}
+
+body.dark-mode h2 {
+    color: #f8f8f2;
+}
+
+body.dark-mode p a {
+    color: #5bc0de;
+}
+
+body.dark-mode p a:hover {
+    color: #31b0d5;
+}
+
+body > * {
+    margin-bottom: 15px;
+}
+
+form {
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p a {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+a {
+    color: #007bff; /* Cor verde para o link */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a:hover {
+    background-color: #007bff;
+    color: white;
+}
