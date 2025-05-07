@@ -33,14 +33,84 @@ def verificar_senha(senha_fornecida, hash_armazenado):
     return bcrypt.checkpw(senha_codificada, hash_codificado)
 
 
+@app.route("/")
+def pagina_inicial():
+    return render_template("pagina_inicial.html")
+
+
 @app.route("/contato")
 def contato():
     return render_template("contato.html")
 
 
-@app.route("/")
-def pagina_inicial():
-    return render_template("pagina_inicial.html")
+@app.route("/sobrenos")
+def sobrenos():
+    if "usuario" not in session:
+        return redirect(url_for("login"))
+    return render_template("sobrenos.html", usuario=session["usuario"])
+
+
+@app.route("/cursos")
+def listar_cursos():
+    cursos = [
+        {"id": 1, "titulo": "Curso de Introdução à Programação", "link": "/curso/introducao-programacao"},
+        {"id": 2, "titulo": "Python para Iniciantes: Do Zero ao Código", "link": "/curso/python_iniciantes"},
+        {"id": 3, "titulo": "Marketing Digital para Iniciantes", "link": "/curso/marketing-digital"},
+        {"id": 4, "titulo": "Design Gráfico Profissional", "link": "/curso/design-grafico"}
+    ]
+    return render_template("cursos.html", cursos=cursos)
+
+
+@app.route('/curso/python-iniciantes')
+def curso_python_iniciantes():
+    modulos = [
+        {"titulo": "Módulo 1: Introdução ao Python e Configuração do Ambiente", "aulas": [
+            {"titulo": "O que é Python e suas aplicações", "link": "/aula/python-intro"},
+            {"titulo": "Instalação do Python", "link": "/aula/python-instalacao"},
+            {"titulo": "Primeiro contato com o IDE", "link": "/aula/python-ide"}
+        ]},
+        {"titulo": "Módulo 2: Fundamentos da Linguagem: Variáveis, Tipos de Dados e Operadores", "aulas": [
+            {"titulo": "Variáveis e atribuições", "link": "/aula/variaveis"},
+            {"titulo": "Tipos de dados (int, float, str, bool)", "link": "/aula/tipos-dados"},
+            {"titulo": "Operadores aritméticos", "link": "/aula/operadores-aritmeticos"},
+            {"titulo": "Operadores de comparação", "link": "/aula/operadores-comparacao"},
+            {"titulo": "Operadores lógicos", "link": "/aula/operadores-logicos"}
+        ]},
+        {"titulo": "Módulo 3: Estruturas de Controle: Condicionais (if, else, elif)", "aulas": [
+            {"titulo": "A instrução if", "link": "/aula/if"},
+            {"titulo": "A instrução else", "link": "/aula/else"},
+            {"titulo": "A instrução elif", "link": "/aula/elif"},
+            {"titulo": "Condicionais aninhados", "link": "/aula/if-aninhado"}
+        ]},
+        {"titulo": "Módulo 4: Estruturas de Controle: Loops (for e while)", "aulas": [
+            {"titulo": "O loop for", "link": "/aula/for"},
+            {"titulo": "Iterando sobre sequências", "link": "/aula/iteracao"},
+            {"titulo": "O loop while", "link": "/aula/while"},
+            {"titulo": "Controle de loops (break e continue)", "link": "/aula/controle-loop"}
+        ]},
+        {"titulo": "Módulo 5: Funções: Organizando seu Código", "aulas": [
+            {"titulo": "Definindo funções", "link": "/aula/definir-funcoes"},
+            {"titulo": "Chamando funções", "link": "/aula/chamar-funcoes"},
+            {"titulo": "Parâmetros e argumentos", "link": "/aula/parametros"},
+            {"titulo": "Retornando valores", "link": "/aula/retorno-funcoes"}
+        ]},
+        {"titulo": "Módulo 6: Módulos e Pacotes: Expandindo as Funcionalidades do Python", "aulas": [
+            {"titulo": "O que são módulos", "link": "/aula/modulos"},
+            {"titulo": "Importando módulos", "link": "/aula/importar-modulos"},
+            {"titulo": "Usando módulos built-in", "link": "/aula/modulos-builtin"},
+            {"titulo": "Introdução a pacotes", "link": "/aula/pacotes"}
+        ]},
+        {"titulo": "Módulo 7: Tratamento de Erros e Exceções", "aulas": [
+            {"titulo": "O que são erros e exceções", "link": "/aula/erros-excecoes"},
+            {"titulo": "Tratando exceções com try-except", "link": "/aula/try-except"},
+            {"titulo": "Cláusula finally", "link": "/aula/finally"}
+        ]},
+        {"titulo": "Módulo 8: Projetos Práticos Iniciais", "aulas": [
+            {"titulo": "Projeto 1: Calculadora simples", "link": "/projeto/calculadora"},
+            {"titulo": "Projeto 2: Jogo de adivinhação", "link": "/projeto/adivinhacao"}
+        ]}
+    ]
+    return render_template("curso_python.html", modulos=modulos)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -66,6 +136,8 @@ def registrar():
         usuario = request.form["usuario"].strip().lower()
         senha = request.form["senha"]
         confirmar = request.form["confirmar"]
+        email = request.form.get("email", "").strip()
+        numero = request.form.get("numero", "").strip()
 
         if not usuario:
             flash("Usuário não pode estar vazio.", "danger")
@@ -75,7 +147,7 @@ def registrar():
             flash("Usuário já existe.", "danger")
         else:
             hashed_senha = gerar_hash_senha(senha)
-            usuarios[usuario] = {"senha": hashed_senha}
+            usuarios[usuario] = {"senha": hashed_senha, "email": email, "numero": numero}
             salvar_usuarios(usuarios)
             flash("Usuário registrado com sucesso! ✅", "info")
             return redirect(url_for("login"))
@@ -97,8 +169,7 @@ def excluir():
             usuarios.pop(usuario_para_excluir)
             salvar_usuarios(usuarios)
             session.pop("usuario", None)
-            flash(
-                f"Usuário '{usuario_para_excluir}' excluído com sucesso.", "danger")
+            flash(f"Usuário '{usuario_para_excluir}' excluído com sucesso.", "danger")
             return redirect(url_for("login"))
         else:
             flash("Senha incorreta. Não foi possível excluir a conta.", "danger")
@@ -135,34 +206,18 @@ def redefinir_senha():
         return render_template("esqueci_senha.html")
 
 
-@app.route("/sobrenos")
-def sobrenos():
-    if "usuario" not in session:
-        return redirect(url_for("login"))
-    return render_template("sobrenos.html", usuario=session["usuario"])
-
-
 @app.route("/excluir_conta")
 def excluir_conta_pagina():
     return render_template("excluir_conta.html")
 
 
-@app.route("/logout")
-def logout():
-    session.pop("usuario", None)
-    flash("Logout realizado com sucesso !", "info")
-    return redirect(url_for("pagina_inicial"))
-
-
-@app.route('/minha_conta', methods=["GET", "POST"])
+@app.route("/minha_conta", methods=["GET", "POST"])
 def minha_conta():
     if "usuario" not in session:
         return redirect(url_for("login"))
 
     usuarios = carregar_usuarios()
     usuario_info = usuarios.get(session["usuario"])
-
-    # ... restante do seu código ...
 
     if request.method == "POST":
         novo_email = request.form.get("email", "").strip()
@@ -200,5 +255,13 @@ def minha_conta():
     return render_template("minha_conta.html", usuario_info=usuario_info)
 
 
+@app.route("/logout")
+def logout():
+    session.pop("usuario", None)
+    flash("Logout realizado com sucesso !", "info")
+    return redirect(url_for("pagina_inicial"))
+
+
+# ✅ INÍCIO DO SERVIDOR FLASK (único app.run)
 if __name__ == "__main__":
     app.run(debug=True)
