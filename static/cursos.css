@@ -1,0 +1,130 @@
+/* estilos.css (ou tela.css) */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f7f7; /* Fundo claro */
+    color: #333; /* Texto escuro */
+    margin: 0;
+    padding: 20px; /* Adiciona um pouco de espaçamento ao redor do conteúdo */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 30px 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #555;
+    font-size: 1.1em;
+}
+
+header .botao.voltar {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #555;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+header .botao.voltar:hover {
+    background-color: #777;
+}
+
+main.lista-de-cursos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Cria duas colunas de igual largura */
+    gap: 30px; /* Aumenta o espaçamento entre os cards */
+}
+
+.curso-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.curso-card:hover {
+    transform: translateY(-5px);
+}
+
+.curso-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #eee;
+    /* Ajuste a altura se as imagens forem muito grandes */
+    max-height: 200px;
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+}
+
+.curso-card h3 {
+    color: #2c3e50;
+    padding: 20px;
+    margin: 0;
+    font-size: 1.5em; /* Título maior */
+    font-weight: bold;
+}
+
+.curso-card p {
+    color: #555;
+    padding: 0 20px 20px;
+    margin: 0;
+    font-size: 1.1em; /* Descrição um pouco maior */
+    line-height: 1.7;
+    flex-grow: 1;
+}
+
+.curso-card .botao.saiba-mais {
+    display: block;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 20px; /* Botão maior */
+    text-align: center;
+    border-radius: 0 0 8px 8px;
+    transition: background-color 0.3s ease;
+    font-size: 1.1em; /* Texto do botão maior */
+    font-weight: bold;
+}
+
+.curso-card .botao.saiba-mais:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    color: #777;
+    font-size: 0.9em;
+}
+
+/* Estilos para telas menores */
+@media (max-width: 768px) {
+    main.lista-de-cursos {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+}

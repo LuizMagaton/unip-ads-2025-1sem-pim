@@ -1,5 +1,28 @@
 {
-    "gabriel": {
-        "senha": "$2b$12$Zil4FdO.nCDYHM/aE6VBkeVqLBv38z9r5S38gZi33JhnuHSNfGZ5i"
+    "123": {
+        "senha": "$2b$12$oVVIrpnQIejSxnbJkBdGvejqUmfCBlLAfBHDI6o9H508r0ywjX1yy",
+        "email": "carlos.hs.storti@gmail.com",
+        "numero": "11"
+    },
+    "1": {
+        "senha": "$2b$12$LuV9o5IiWP4mxAVGrItuNOPBWdTAmaHsNgUxCj4PgJQokxoF/0xZC"
+    },
+    "doze": {
+        "senha": "$2b$12$Fo0wpQ4wV/uYYOVVFns.seKsY7zNvvtFjj5maL5nkNdINhWYQFUoi"
+    },
+    "3": {
+        "senha": "$2b$12$c5v8qo6imdJGdTOm3B7OL.rMkoayTP8iiPMvLVSDTuXXSy0jkDZHm",
+        "email": "3",
+        "numero": "3"
+    },
+    "storti": {
+        "senha": "$2b$12$GO5vdkYNrGUCbg32qnMWOOf.PmyTgQaVubOcGy419vhwjS5Iiq8gW",
+        "email": "carlos.hs.storti@gmail.com",
+        "numero": "11959863490"
+    },
+    "6": {
+        "senha": "$2b$12$uvNGtdhCTJHXuNdrdr1Lwurq2sp6OyniRnkOxZQqwvROo2tOqYYi6",
+        "email": "6",
+        "numero": "6"
     }
 }
