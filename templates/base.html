@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="../static/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Título{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Academia Digital</h1>
+            <nav>
+                <ul>
+                    <li><a href="/cursos">Cursos</a></li>
+                    <li><a href="/sobrenos">Sobre Nós</a></li>
+                    <li><a href="/contato">Contato</a></li>
+                    {% if session['usuario'] %}
+                    <li><a href="/logout">Sair</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container pagina-inicial">
+        <section class="boas-vindas">
+            {% block content %}
+            <!-- Conteúdo específico da página será inserido aqui -->
+            {% endblock %}
+        </section>
+    </main>
+</body>
+
+</html>
