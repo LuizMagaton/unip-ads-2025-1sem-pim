@@ -1,24 +1,20 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='tela.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='cor.css') }}">
-    <meta charset="UTF-8">
-    <title>Esqueci a Senha</title>
-</head>
-<body>
-    <h2>Redefinir Senha</h2>
-    {% with messages = get_flashed_messages(with_categories=True) %}
-        {% for category, message in messages %}
-            <p class="{{ category }}-label">{{ message }}</p>
-        {% endfor %}
-    {% endwith %}
-    <form method="POST" action="{{ url_for('redefinir_senha') }}">
-        <input type="text" name="usuario" placeholder="Nome de Usuário" required><br>
-        <input type="password" name="nova_senha" placeholder="Nova Senha" required><br>
-        <input type="password" name="confirmar_senha" placeholder="Confirmar Nova Senha" required><br>
-        <button type="submit">Redefinir Senha</button>
-    </form>
-    <p><a href="{{ url_for('login') }}">Voltar ao Login</a></p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Redefinir Senha{% endblock %}
+
+{% block content %}
+<h1>Redefinir Senha</h1>
+{% with messages = get_flashed_messages(with_categories=True) %}
+{% for category, message in messages %}
+<p class="{{ category }}-label">{{ message }}</p>
+{% endfor %}
+{% endwith %}
+<form method="POST" action="{{ url_for('redefinir_senha') }}">
+    <input type="text" name="usuario" placeholder="Nome de Usuário" required><br>
+    <input type="password" name="nova_senha" placeholder="Nova Senha" required><br>
+    <input type="password" name="confirmar_senha" placeholder="Confirmar Nova Senha" required><br>
+    <button type="submit">Redefinir Senha</button>
+</form>
+<p><a href="{{ url_for('login') }}">Voltar</a></p>
+
+{%endblock%}
