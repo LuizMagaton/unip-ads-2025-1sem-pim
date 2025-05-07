@@ -12,11 +12,14 @@
             <h1>Academia Digital</h1>
             <nav>
                 <ul>
-                    <li><a href="/cursos">Cursos</a></li>
-                    <li><a href="/sobrenos">Sobre Nós</a></li> 
+                    <li><a href="/sobrenos">Sobre Nós</a></li>
                     <li><a href="/contato">Contato</a></li>
                     {% if session['usuario'] %}
-                        <li><a href="/logout">Sair</a></li>
+                        <li><a href="/logout" class="botao destaque">Logout</a></li>
+                        <li><a href="/minha_conta">Minha Conta</a></li>
+                    {% else %}
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/registrar">Registrar</a></li>
                     {% endif %}
                 </ul>
             </nav>
@@ -29,7 +32,7 @@
             <p>Encontre os melhores cursos online para expandir seus conhecimentos e habilidades.</p>
             {% if session['usuario'] %}
                 <p>Olá, {{ session['usuario'] }}!</p>
-                <a href="/minha_conta" class="botao destaque">Minha Conta</a>
+                <a href="/cursos" class="botao destaque">Cursos</a>
             {% else %}
                 <p>Faça login ou registre-se para acessar nossa plataforma.</p>
                 <div class="botoes-inicio">
@@ -38,6 +41,5 @@
                 </div>
             {% endif %}
         </section>
-    </main>
 </body>
 </html>
