@@ -1,45 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <link rel="stylesheet" href="../static/pagina_inicial.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Academia Digital</h1>
-            <nav>
-                <ul>
-                    <li><a href="/sobrenos">Sobre Nós</a></li>
-                    <li><a href="/contato">Contato</a></li>
-                    {% if session['usuario'] %}
-                        <li><a href="/logout" class="botao destaque">Logout</a></li>
-                        <li><a href="/minha_conta">Minha Conta</a></li>
-                    {% else %}
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/registrar">Registrar</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
-        </div>
-    </header>
+{% extends "base.html" %}
 
-    <main class="container pagina-inicial">
-        <section class="boas-vindas">
-            <h2>Bem-vindo(a) a Academia Digital!</h2>
-            <p>Encontre os melhores cursos online para expandir seus conhecimentos e habilidades.</p>
-            {% if session['usuario'] %}
-                <p>Olá, {{ session['usuario'] }}!</p>
-                <a href="/cursos" class="botao destaque">Cursos</a>
-            {% else %}
-                <p>Faça login ou registre-se para acessar nossa plataforma.</p>
-                <div class="botoes-inicio">
-                    <a href="/login" class="botao primario">Login</a>
-                    <a href="/registrar" class="botao secundario">Registrar</a>
-                </div>
-            {% endif %}
-        </section>
-</body>
-</html>
+{% block title %}Página Inicial{% endblock %}
+
+{% block content %}
+
+<h2>Bem-vindo(a) a Academia Digital!</h2>
+<p>Encontre os melhores cursos online para expandir seus conhecimentos e habilidades.</p>
+{% if session['usuario'] %}
+<p>Olá, {{ session['usuario'] }}!</p>
+<a href="/minha_conta" class="botao destaque">Minha Conta</a>
+{% else %}
+<p>Faça login ou registre-se para acessar nossa plataforma.</p>
+<div class="botoes-inicio">
+    <a href="/login" class="botao primario">Login</a>
+    <a href="/registrar" class="botao secundario">Registrar</a>
+</div>
+{% endif %}
+{% endblock %}

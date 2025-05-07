@@ -1,35 +1,28 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <link rel="stylesheet" href="../static/tela.css">
-    <link rel="stylesheet" href="../static/cor.css">
-    <meta charset="UTF-8">
-    <title>Excluir Conta</title>
-</head>
-<body>
-    <h3>Excluir Conta</h3>
+{% extends "base.html" %}
 
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-        <div class="messages">
-        {% for category, message in messages %}
-            <div class="{{ category }}-label">
-                {{ message }}
-            </div>
-        {% endfor %}
-        </div>
-    {% endif %}
-    {% endwith %}
+{% block title %}Excluir Conta{% endblock %}
 
-    <form method="post" action="{{ url_for('excluir') }}">
-        <label for="usuario">Usuário:</label>
-        <input type="text" id="usuario" name="usuario" value="{{ session['usuario'] }}" readonly><br><br>
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" placeholder="Senha" required><br><br>
-        <button type="submit" style="background-color: #dc3545;">Excluir Conta</button>
-    </form>
+{% block content %}
+<h3>Excluir Conta</h3>
 
-    <a href="/">Voltar</a>
-    
-</body>
-</html>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="messages">
+    {% for category, message in messages %}
+    <div class="{{ category }}-label">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<form method="post" action="{{ url_for('excluir') }}">
+    <label for="usuario">Usuário:</label>
+    <input type="text" id="usuario" name="usuario" value="{{ session['usuario'] }}" readonly><br><br>
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" name="senha" placeholder="Senha" required><br><br>
+    <button type="submit" style="background-color: #dc3545;">Excluir Conta</button>
+</form>
+<p><a href="/">Voltar</a></p>
+{% endblock %}
