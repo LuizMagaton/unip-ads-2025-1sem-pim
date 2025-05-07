@@ -2,12 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap');
 
 body {
-    font-family: 'Poppins', sans-serif; /* Fonte moderna principal */
-    background-color: #f7f7f7; /* Fundo levemente mais claro */
+    font-family: 'Poppins', sans-serif;
+    /* Fonte moderna principal */
+    background-color: #f7f7f7;
+    /* Fundo levemente mais claro */
     margin: 0;
     padding: 0;
     color: #333;
-    line-height: 2.5; /* Melhor legibilidade */
+    /* Melhor legibilidade */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,9 +18,9 @@ body {
 }
 
 .container {
-    max-width: 1200px;
     padding: 20px;
-    text-align: center; /* Centralizar conteúdo geral */
+    text-align: center;
+    /* Centralizar conteúdo geral */
 }
 
 header {
@@ -26,11 +28,14 @@ header {
     padding: 20px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     width: 100%;
-    text-align: left; /* Alinhar o conteúdo do header à esquerda */
-    position: fixed; /* Barra de navegação fixa no topo */
+    text-align: left;
+    /* Alinhar o conteúdo do header à esquerda */
+    position: fixed;
+    /* Barra de navegação fixa no topo */
     top: 0;
     left: 0;
-    z-index: 100; /* Garantir que a barra de navegação esteja acima de outros elementos */
+    z-index: 100;
+    /* Garantir que a barra de navegação esteja acima de outros elementos */
 }
 
 header .container {
@@ -40,10 +45,11 @@ header .container {
 }
 
 header h1 {
-    color: #2c3e50; /* Cor mais forte para o título */
+    color: #2c3e50;
+    /* Cor mais forte para o título */
     margin: 0;
-    font-size: 2.2em;
-    font-weight: 700; /* Mais destaque */
+    font-weight: 700;
+    /* Mais destaque */
 }
 
 nav ul {
@@ -71,10 +77,12 @@ nav a {
 }
 
 nav a:hover,
-nav a.active { /* Estilo para o menu ativo */
+nav a.active {
+    /* Estilo para o menu ativo */
     color: #007bff;
     /* border-bottom: 2px solid #007bff; Sublinhado para ativo */
-    background-color: rgba(0, 123, 255, 0.05); /* Leve destaque de fundo */
+    background-color: rgba(0, 123, 255, 0.05);
+    /* Leve destaque de fundo */
 }
 
 nav .btn-comecar {
@@ -92,25 +100,28 @@ nav .btn-comecar:hover {
 }
 
 main.pagina-inicial {
-    padding-top: 100px; /* Espaço para a barra de navegação fixa */
+    padding-top: 100px;
+    /* Espaço para a barra de navegação fixa */
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 1; /* Ocupar o espaço restante */
+    flex-grow: 1;
+    /* Ocupar o espaço restante */
 }
 
 .boas-vindas {
     background-color: #fff;
     padding: 60px;
-    border-radius: 16px; /* Bordas mais arredondadas */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Sombra mais suave e maior */
+    border-radius: 16px;
+    /* Bordas mais arredondadas */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    /* Sombra mais suave e maior */
     text-align: center;
     max-width: 700px;
 }
 
 .boas-vindas h2 {
     color: #2c3e50;
-    font-size: 3.0em;
     margin-top: 0;
     margin-bottom: 20px;
     display: flex;
@@ -118,11 +129,13 @@ main.pagina-inicial {
     justify-content: center;
 }
 
-.boas-vindas h2 svg { /* Estilo para um possível ícone SVG */
+.boas-vindas h2 svg {
+    /* Estilo para um possível ícone SVG */
     margin-right: 15px;
     width: 40px;
     height: 40px;
-    fill: #007bff; /* Cor do ícone */
+    fill: #007bff;
+    /* Cor do ícone */
 }
 
 .boas-vindas p {
@@ -154,7 +167,8 @@ main.pagina-inicial {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.boas-vindas .botao svg { /* Estilo para ícones nos botões */
+.boas-vindas .botao svg {
+    /* Estilo para ícones nos botões */
     margin-left: 10px;
     width: 24px;
     height: 24px;
@@ -163,7 +177,8 @@ main.pagina-inicial {
 
 .boas-vindas .botao:hover {
     background-color: #1e7e34;
-    transform: translateY(-2px); /* Leve efeito de levantar ao hover */
+    transform: translateY(-2px);
+    /* Leve efeito de levantar ao hover */
 }
 
 .boas-vindas .botao.ver-cursos {
@@ -243,8 +258,13 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 
@@ -285,7 +305,8 @@ h2 {
 }
 
 p a {
-    color: #007bff; /* Cor verde para o link */
+    color: #007bff;
+    /* Cor verde para o link */
     text-decoration: none;
     font-weight: bold;
     padding: 10px 20px;
