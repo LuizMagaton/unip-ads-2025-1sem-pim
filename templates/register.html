@@ -16,8 +16,35 @@
     <input type="password" name="confirmar" placeholder="Confirmar Senha" required><br>
     <input type="text" name="email" placeholder="E-mail" required><br>
     <input type="text" name="numero" placeholder="Celular" required><br>
-    <button type="submit">Registrar</button>
+
+    <div style="margin-top: 15px; margin-bottom: 15px; display: flex; align-items: center;">
+        <input type="checkbox" id="aceitePolitica" name="aceite_politica" required>
+        <label for="aceitePolitica" style="margin-left: 8px;">
+            Li e concordo com a
+            <a href="/politica-de-dados" class="botao-link">Política de Dados</a>.
+        </label>
+    </div>
+
+    <button type="submit" id="btnRegistrar" disabled>Registrar</button>
 </form>
 
 <p><a href="/">Voltar</a></p>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const checkbox = document.getElementById('aceitePolitica');
+        const btnRegistrar = document.getElementById('btnRegistrar');
+
+        // Função para verificar o estado do checkbox
+        function toggleRegisterButton() {
+            btnRegistrar.disabled = !checkbox.checked;
+        }
+
+        // Define o estado inicial do botão
+        toggleRegisterButton();
+
+        // Adiciona um listener para quando o checkbox for alterado
+        checkbox.addEventListener('change', toggleRegisterButton);
+    });
+</script>
 {% endblock %}

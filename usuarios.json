@@ -3,5 +3,20 @@
         "senha": "$2b$12$EUSE2grfLzG9UfXDohWip.p0YC.SOsEtZddbCaLnPaQCIfutHfnYu",
         "email": "123",
         "numero": "123"
+    },
+    "6": {
+        "senha": "$2b$12$d4gksu1u.1Vjnb3EM79.TeZb2/wbXJ004Kzi88r49NTSj3fD6lOee",
+        "email": "6",
+        "numero": "6"
+    },
+    "carlos storti": {
+        "senha": "$2b$12$1iYgsowlLTY5aluTmNLQZ.9Fadv6nGx47OOywnVXlhFJtz8TKTkqG",
+        "email": "carlos.hs.storti@gmail.com",
+        "numero": "11959863490"
+    },
+    "luiz": {
+        "senha": "$2b$12$Wh6QpRIby8s0zpTz28CO3eb1C0Z9XMmtWXox3nBnaov0ZV5lef0hi",
+        "email": "123",
+        "numero": "123"
     }
 }
