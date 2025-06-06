@@ -18,7 +18,6 @@ body {
 
 /* Container for consistent content width and centering */
 .container {
-    max-width: 1000px; /* Adjust max-width as needed */
     margin: 0 auto; /* Center the container */
     padding: 20px; /* Internal padding */
 }
@@ -29,6 +28,7 @@ header {
     padding: 20px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     width: 100%;
+    text-align: left;
     position: fixed; /* Fixed navigation bar at the top */
     top: 0;
     left: 0;
@@ -45,8 +45,7 @@ header h1 {
     color: #2c3e50;
     margin: 0;
     font-weight: 700;
-    font-size: 2.2em; /* Adjusted for header dominance */
-    letter-spacing: 0.01em; /* Subtle letter spacing */
+
 }
 
 /* Navigation Styling (if applicable, though not directly in the provided HTML for the "curso" page) */
