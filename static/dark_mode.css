@@ -1,0 +1,120 @@
+/* static/dark_mode.css */
+
+/* Define as variáveis de cor para o modo escuro quando o body tem a classe dark-mode */
+body.dark-mode {
+    --background-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --header-color: #2b2b2b;
+    --border-color: #555;
+    --input-bg-color: #333;
+    --input-text-color: #555;
+    --button-bg-color: #0056b3; /* Um tom de azul que combine no escuro */
+    --button-text-color: #555;
+    --link-color: #6da2ff; /* Um azul mais claro para links no escuro */
+}
+
+/* Regras de estilo que se aplicam APENAS no dark mode, usando as variáveis */
+body.dark-mode {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: var(--text-color);
+}
+
+body.dark-mode header {
+    background-color: var(--header-color);
+    border-bottom-color: var(--border-color);
+}
+
+body.dark-mode header h1 {
+    color: var(--text-color);
+}
+
+body.dark-mode header nav ul li a {
+    color: var(--text-color);
+}
+
+body.dark-mode header nav ul li a:hover {
+    color: var(--link-color);
+}
+
+body.dark-mode form {
+    background-color: var(--header-color); /* Pode ser a mesma cor do cabeçalho */
+    border-color: var(--border-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4); /* Sombra mais escura para dark mode */
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="password"],
+body.dark-mode input[type="email"],
+body.dark-mode input[type="number"] {
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color);
+    border-color: var(--border-color);
+}
+
+body.dark-mode button[type="submit"] {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+}
+
+body.dark-mode button[type="submit"]:hover:not(:disabled) {
+    background-color: var(--link-color);
+}
+
+body.dark-mode button[type="submit"]:disabled {
+    background-color: #555; /* Um cinza mais escuro para o botão desabilitado no dark mode */
+    color: #aaa;
+}
+
+body.dark-mode a {
+    color: var(--link-color);
+}
+
+body.dark-mode a:hover {
+    color: var(--link-color); /* Ou um tom ligeiramente diferente */
+}
+
+body.dark-mode .botao-link {
+    background-color: var(--button-bg-color);
+    border-color: var(--button-bg-color);
+    color: var(--button-text-color);
+}
+
+body.dark-mode .botao-link:hover {
+    background-color: var(--link-color);
+    border-color: var(--link-color);
+}
+
+body.dark-mode .success-label {
+    background-color: #3a5e3a; /* Um verde mais escuro */
+    color: #d4edda;
+}
+
+body.dark-mode .error-label {
+    background-color: #6a3a3a; /* Um vermelho mais escuro */
+    color: #f8d7da;
+}
+
+body.dark-mode .checkbox-container label {
+    color: var(--text-color);
+}
+
+body.dark-mode .checkbox-container input[type="checkbox"] {
+    accent-color: var(--link-color); /* Cor do preenchimento do checkbox */
+}
+
+/* Estilo para o toggle switch no dark mode */
+body.dark-mode .theme-switch label {
+    color: var(--text-color); /* Garante que o texto do label do toggle mude de cor */
+}
+body.dark-mode input:checked + .slider {
+    background-color: #4a90e2; /* Um azul um pouco diferente para o slider no dark mode */
+}

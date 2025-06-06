@@ -1,36 +1,38 @@
 /* Importar fontes do Google Fonts (opcional, mas recomendado) */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap');
 
+/* Base Body Styling */
 body {
-    font-family: 'Poppins', sans-serif; /* Fonte moderna principal */
-    background-color: #f7f7f7; /* Fundo levemente mais claro */
+    font-family: 'Poppins', sans-serif; /* Use Poppins as the primary font */
+    background-color: #f7f7f7; /* Light background */
     margin: 0;
     padding: 0;
-    color: #333;
-    line-height: 2.5; /* Melhor legibilidade */
+    color: #333; /* Good readability text color */
+    line-height: 1.6; /* Standard line spacing for general readability */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    opacity: 0; /* For fade-in animation */
+    animation: fadeIn 0.5s ease-in-out forwards;
 }
 
+/* Container for consistent content width and centering */
 .container {
-    max-width: 1200px;
-    padding: 20px;
-    text-align: center; /* Centralizar conteúdo geral */
+    max-width: 1000px; /* Adjust max-width as needed */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Internal padding */
 }
 
+/* Header Styling */
 header {
     background-color: #fff;
     padding: 20px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     width: 100%;
-    text-align: left; /* Alinhar o conteúdo do header à esquerda */
-    position: fixed; /* Barra de navegação fixa no topo */
+    position: fixed; /* Fixed navigation bar at the top */
     top: 0;
     left: 0;
-    z-index: 100; /* Garantir que a barra de navegação esteja acima de outros elementos */
+    z-index: 100; /* Ensure it's above other elements */
 }
 
 header .container {
@@ -40,12 +42,14 @@ header .container {
 }
 
 header h1 {
-    color: #2c3e50; /* Cor mais forte para o título */
+    color: #2c3e50;
     margin: 0;
-    font-size: 2.2em;
-    font-weight: 700; /* Mais destaque */
+    font-weight: 700;
+    font-size: 2.2em; /* Adjusted for header dominance */
+    letter-spacing: 0.01em; /* Subtle letter spacing */
 }
 
+/* Navigation Styling (if applicable, though not directly in the provided HTML for the "curso" page) */
 nav ul {
     list-style: none;
     padding: 0;
@@ -71,10 +75,9 @@ nav a {
 }
 
 nav a:hover,
-nav a.active { /* Estilo para o menu ativo */
+nav a.active {
     color: #007bff;
-    /* border-bottom: 2px solid #007bff; Sublinhado para ativo */
-    background-color: rgba(0, 123, 255, 0.05); /* Leve destaque de fundo */
+    background-color: rgba(0, 123, 255, 0.05);
 }
 
 nav .btn-comecar {
@@ -91,38 +94,229 @@ nav .btn-comecar:hover {
     background-color: #1e7e34;
 }
 
+/* Main Content Area (main.container for the specific course page) */
+main.container {
+    padding-top: 100px; /* Space for fixed header */
+    flex-grow: 1; /* Allow main content to occupy remaining space */
+    width: 100%; /* Ensure it spans the full width of its parent */
+    max-width: 1000px; /* Align with general container width */
+    margin-bottom: 40px; /* Space before footer */
+}
+
+/* Section Styling for spacing and visual separation */
+.secao-descricao,
+.secao-modulos,
+.secao-inscricao {
+    margin-bottom: 30px; /* Space between sections */
+    padding: 25px; /* Internal padding for sections */
+    background-color: #fff; /* White background for sections */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
+}
+
+/* Headings */
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif; /* Use Roboto for headings for contrast */
+    color: #212529; /* Darker heading color */
+    letter-spacing: 0.015em; /* Subtle letter spacing for headings */
+    margin-bottom: 15px;
+    padding-top: 0.1em; /* Subtle push down for headings */
+    margin-top: 0.5em; /* Add space above if needed */
+}
+
+h2 {
+    font-size: 2em;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee; /* Subtle underline for sections */
+}
+
+h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+/* General Paragraph Text - Main readability improvements */
+.secao-descricao p {
+    letter-spacing: 0.02em; /* Keep subtle letter spacing */
+    line-height: 1.8; /* Increased line spacing for paragraphs */
+    margin-bottom: 1.5em; /* More space below paragraphs */
+    font-size: 1.05em; /* Slightly larger font size for paragraphs */
+    padding-top: 0.2em; /* Small padding-top to shift paragraphs down */
+}
+
+/* List Items - Main readability improvements (NO BULLETS) */
+.secao-descricao ul {
+    list-style: none; /* Crucial: Ensures no default browser bullets appear */
+    padding: 0; /* Remove default padding from the ul */
+    margin-top: 20px;
+}
+
+.secao-descricao ul li {
+    letter-spacing: 0.02em; /* Keep subtle letter spacing */
+    line-height: 1.7; /* Increased line spacing for list items */
+    margin-bottom: 1.2em; /* Increase space between list items */
+    padding-left: 20px; /* Adjusted: Small indentation without a bullet */
+    font-size: 1.05em; /* Slightly larger font size for list items */
+    padding-top: 0.2em; /* Small padding-top to shift list item text down */
+    /* Removed: position: relative; as it's no longer needed without ::before */
+}
+
+/* Removed: Custom bullet point for list items (.secao-descricao ul li::before) */
+
+
+/* Bolded text within list items */
+.secao-descricao ul li strong {
+    letter-spacing: 0.005em; /* Very subtle for bold text, as it's already denser */
+    color: #222; /* Ensure bold text is clearly visible */
+}
+
+/* "secao-inscricao" styling */
+.secao-inscricao p {
+    letter-spacing: 0.02em;
+    line-height: 1.8;
+    font-size: 1.15em; /* Make call to action text a bit larger and more prominent */
+    text-align: center;
+    font-weight: 500;
+    padding-top: 0.3em; /* Slightly more padding-top for this section's text */
+}
+
+/* Modulo Container Styling */
+.modulo-container {
+    border: 1px solid #e0e0e0; /* Lighter border */
+    border-radius: 8px;
+    overflow: hidden; /* Ensures borders wrap content neatly */
+}
+
+.modulo-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modulo-header {
+    background-color: #f0f3f5; /* Light background for module headers */
+    padding: 12px 20px;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* Indicate it's clickable (if you plan to make them collapsible) */
+    transition: background-color 0.3s ease;
+}
+
+.modulo-header:hover {
+    background-color: #e5e8ea;
+}
+
+.modulo-header i {
+    margin-right: 12px; /* Space between icon and title */
+    color: #007bff;
+    font-size: 1.3em;
+}
+
+.modulo-header h3 {
+    margin: 0;
+    font-size: 1.25em;
+    letter-spacing: 0.01em;
+}
+
+.aula-item {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px dashed #f5f5f5; /* Subtle dashed line for separation */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Push button to the right */
+}
+
+.aula-item:last-child {
+    border-bottom: none; /* No border for the last item */
+}
+
+.aula-item i {
+    margin-right: 10px;
+    color: #6c757d; /* Gray color for file icon */
+    font-size: 1.1em;
+}
+
+.aula-item span {
+    flex-grow: 1; /* Allow text to take up available space */
+    letter-spacing: 0.01em;
+    font-size: 1em;
+    color: #555;
+}
+
+/* Button Styles (general and specific) */
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.botao.voltar {
+    background-color: #6c757d; /* Gray button */
+    color: white;
+    margin-left: auto; /* Push button to the right in the header container */
+}
+
+.botao.voltar:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+.botao-aula {
+    background-color: #28a745; /* Green button */
+    color: white;
+    padding: 7px 14px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin-left: 15px; /* Space between text and button */
+}
+
+.botao-aula:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+/* "Boas-vindas" Section (from your other CSS - assuming it's for a homepage, keeping it separated) */
 main.pagina-inicial {
-    padding-top: 100px; /* Espaço para a barra de navegação fixa */
+    padding-top: 100px; /* Space for the fixed nav bar */
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 1; /* Ocupar o espaço restante */
+    flex-grow: 1;
 }
 
 .boas-vindas {
     background-color: #fff;
     padding: 60px;
-    border-radius: 16px; /* Bordas mais arredondadas */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Sombra mais suave e maior */
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     text-align: center;
     max-width: 700px;
 }
 
 .boas-vindas h2 {
     color: #2c3e50;
-    font-size: 3.0em;
     margin-top: 0;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 2.8em; /* Adjusted for prominence */
 }
 
-.boas-vindas h2 svg { /* Estilo para um possível ícone SVG */
+.boas-vindas h2 svg {
     margin-right: 15px;
     width: 40px;
     height: 40px;
-    fill: #007bff; /* Cor do ícone */
+    fill: #007bff;
 }
 
 .boas-vindas p {
@@ -140,9 +334,6 @@ main.pagina-inicial {
 }
 
 .boas-vindas .botao {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     background-color: #28a745;
     color: white;
     padding: 15px 30px;
@@ -150,11 +341,9 @@ main.pagina-inicial {
     border: none;
     border-radius: 8px;
     text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.boas-vindas .botao svg { /* Estilo para ícones nos botões */
+.boas-vindas .botao svg {
     margin-left: 10px;
     width: 24px;
     height: 24px;
@@ -163,7 +352,7 @@ main.pagina-inicial {
 
 .boas-vindas .botao:hover {
     background-color: #1e7e34;
-    transform: translateY(-2px); /* Leve efeito de levantar ao hover */
+    transform: translateY(-2px);
 }
 
 .boas-vindas .botao.ver-cursos {
@@ -175,29 +364,130 @@ main.pagina-inicial {
     background-color: #0056b3;
 }
 
+
+/* Footer Styling */
 footer {
     background-color: #343a40;
     color: #f8f9fa;
     text-align: center;
     padding: 20px 0;
     font-size: 0.9em;
-    margin-top: 40px;
+    margin-top: auto; /* Push footer to the bottom if content is short */
     width: 100%;
 }
 
-footer .container {
-    padding: 20px;
+footer p {
+    margin: 0;
+    letter-spacing: 0.02em;
 }
+
+/* Form Styling (assuming a login/registration form) */
+form {
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 50px auto; /* Center the form with some top/bottom margin */
+}
+
+form h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    color: #2c3e50;
+    border-bottom: none; /* No border for form heading */
+    padding-bottom: 0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] { /* Added email as a common form input */
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding in width */
+    font-size: 1em;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Link styling outside of specific contexts (e.g., for login/register links) */
+p a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+p a:hover {
+    color: #0056b3;
+}
+
 
 /* Responsividade (Exemplo básico) */
 @media (max-width: 768px) {
+    .container {
+        padding: 15px; /* Reduce container padding on smaller screens */
+    }
+
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+
+    .botao.voltar {
+        margin-left: 0; /* Align button to left below title */
+        width: 100%; /* Make it full width */
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav a {
+        width: 100%; /* Full width for nav links */
+        text-align: left;
+        padding: 8px 10px;
+    }
+
     .boas-vindas {
-        padding: 40px;
-        margin: 40px 20px;
+        padding: 40px 20px;
+        margin: 20px;
     }
 
     .boas-vindas h2 {
-        font-size: 2.5em;
+        font-size: 2.2em;
         flex-direction: column;
         align-items: center;
     }
@@ -207,94 +497,98 @@ footer .container {
         margin-bottom: 10px;
     }
 
+    .boas-vindas p {
+        font-size: 1.1em;
+    }
+
     .boas-vindas .botao {
         padding: 12px 25px;
         font-size: 1.1em;
+        width: 100%; /* Make buttons full width */
+        margin-bottom: 15px;
     }
 
     .boas-vindas .botao.ver-cursos {
         margin-left: 0;
-        margin-top: 15px;
+        margin-top: 0; /* Already has bottom margin from general .boas-vindas .botao */
     }
 
-    nav ul {
-        flex-direction: column;
+    .secao-descricao,
+    .secao-modulos,
+    .secao-inscricao {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .secao-descricao p,
+    .secao-descricao ul li {
+        font-size: 1em; /* Smaller text on small screens */
+    }
+
+    .secao-descricao ul li {
+        padding-left: 15px; /* Adjust padding for list items on small screens */
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
+
+    .modulo-header {
+        padding: 10px 15px;
+    }
+
+    .modulo-header h3 {
+        font-size: 1.1em;
+    }
+
+    .aula-item {
+        flex-direction: column; /* Stack aula items vertically */
         align-items: flex-start;
+        padding: 10px 15px;
     }
 
-    nav ul li {
-        margin: 10px 0;
+    .aula-item i {
+        margin-bottom: 5px;
     }
 
-    header .container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    header h1 {
+    .aula-item span {
+        width: 100%;
         margin-bottom: 10px;
     }
+
+    .botao-aula {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 8px 10px;
+    }
+
+    form {
+        padding: 20px;
+        margin: 20px;
+    }
 }
 
-/* Animação de fade-in (opcional) */
-body {
-    opacity: 0;
-    animation: fadeIn 0.5s ease-in-out forwards;
-}
-
+/* Animation */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+body, html {
+    height: 100%;
+    margin: 0;
 }
 
-
-form {
-    max-width: 400px;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #fff;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: calc(100% - 12px);
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    box-sizing: border-box;
-}
-
-button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-p a {
-    color: #007bff; /* Cor verde para o link */
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: 1px solid #007bff;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-p a:hover {
-    background-color: #007bff;
-    color: white;
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* altura da tela inteira */
 }

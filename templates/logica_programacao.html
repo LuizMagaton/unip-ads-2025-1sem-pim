@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso de Python para Iniciantes: Do Zero ao Código</title>
+    <title>Curso de Logica de Programacao</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='cor.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='estilo_modulo.css') }}">
@@ -14,23 +14,18 @@
 <body>
     <header>
         <div class="container">
-            <h1>Curso de Python para Iniciantes: Do Zero ao Código</h1>
+            <h1>Curso de Logica de Programacao</h1>
             <a href="{{ url_for('listar_cursos') }}" class="botao voltar">Voltar</a>
         </div>
     </header>
 
     <main class="container">
         <section class="secao-descricao">
-
             <h2>Sobre o Curso</h2>
-            <p>
-                <li>Este curso abrangente é perfeito para quem nunca programou antes ou tem pouca experiência. Você
-                    aprenderá
-                    os fundamentos da linguagem Python, desde a instalação do ambiente de desenvolvimento até a criação
-                    de
-                    seus primeiros programas funcionais. Nosso objetivo é tornar o aprendizado divertido e acessível,
-                    preparando você para construir uma base sólida na programação.</li>
-            </p>
+            <p>Este curso abrangente é perfeito para quem nunca programou antes ou tem pouca experiência. Você aprenderá
+                os fundamentos da linguagem Python, desde a instalação do ambiente de desenvolvimento até a criação de
+                seus primeiros programas funcionais. Nosso objetivo é tornar o aprendizado divertido e acessível,
+                preparando você para construir uma base sólida na programação.</p>
             <ul>
                 <li><strong>Para quem é este curso:</strong> Iniciantes em programação, estudantes, profissionais de
                     outras áreas que desejam aprender a programar.</li>
@@ -50,13 +45,18 @@
                         <i class="fas fa-folder"></i>
                         <h3>{{ modulo.titulo }}</h3>
                     </li>
-                    {% for aula in modulo.aulas %}
-                    <li class="aula-item">
-                        <i class="fas fa-file-alt"></i>
-                        <span>{{ aula.titulo }}</span>
-                        <a href="{{ aula.link }}" class="botao-aula">Assistir Aula</a>
-                    </li>
-                    {% endfor %}
+                   {% for aula in modulo.aulas %}
+        <li class="aula-item">
+            <i class="fas fa-file-alt"></i>
+            <div class="aula-conteudo">
+                <span class="titulo-aula">{{ aula.titulo }}</span>
+                <a href="{{ aula.link }}" class="botao-aula">
+                    <i class="fas fa-play-circle"></i> Assistir Aula
+                </a>
+            </div>
+        </li>
+        {% endfor %}
+
                     {% endfor %}
                 </ul>
             </div>
@@ -70,7 +70,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Academia Digital. <br> Todos os direitos reservados para Curso em Video (Gustavo Guanabara)
+            <p>&copy; 2025 [Nome da sua Plataforma/Academia]. Todos os direitos reservados.</p>
         </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
