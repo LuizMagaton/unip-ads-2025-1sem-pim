@@ -115,6 +115,4 @@ body.dark-mode .checkbox-container input[type="checkbox"] {
 body.dark-mode .theme-switch label {
     color: var(--text-color); /* Garante que o texto do label do toggle mude de cor */
 }
-body.dark-mode input:checked + .slider {
-    background-color: #4a90e2; /* Um azul um pouco diferente para o slider no dark mode */
-}
+
